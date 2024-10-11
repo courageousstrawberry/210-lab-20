@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <ctime>
 
 using namespace std;
 
@@ -14,10 +15,13 @@ public:
     // constructors
     Chair()
     {
+        const int MIN = 10000, MAX = 99999;
+
         prices = new double[SIZE];
         legs = 0;
+        srand(time(0));
         for (int i = 0; i < SIZE; i++)
-            prices[i] = 0;
+            prices[i] = (rand() % (MAX-MIN+1) + MIN) / (double) 100;
     }
     Chair(int l)
     {

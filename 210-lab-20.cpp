@@ -18,8 +18,8 @@ public:
         const int MIN = 10000, MAX = 99999;
 
         prices = new double[SIZE];
-        legs = 0;
         srand(time(0));
+        legs = rand()%2 + 3;
         for (int i = 0; i < SIZE; i++)
             prices[i] = (rand() % (MAX-MIN+1) + MIN) / (double) 100;
     }

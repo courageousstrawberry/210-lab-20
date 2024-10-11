@@ -18,17 +18,16 @@ public:
         const int MIN = 10000, MAX = 99999;
 
         prices = new double[SIZE];
-        srand(time(0));
         legs = rand()%2 + 3;
         for (int i = 0; i < SIZE; i++)
             prices[i] = (rand() % (MAX-MIN+1) + MIN) / (double) 100;
     }
-    Chair(int l)
+    Chair(int l, double *arr)
     {
         prices = new double[SIZE];
         legs = l;
         for (int i = 0; i < SIZE; i++)
-            prices[i] = 0;
+            prices[i] = arr[i];
     }
     // setters and getters
     void setLegs(int l) { legs = l; }
@@ -60,6 +59,8 @@ public:
 };
 int main()
 {
+    srand(time(0));
+
     cout << fixed << setprecision(2);
     // creating pointer to first chair object
     Chair *chairPtr = new Chair;
